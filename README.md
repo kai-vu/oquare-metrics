@@ -1,6 +1,7 @@
 # oquare-metrics
 
 A module to automatically obtain metrics from ontology files based of OQuaRE framework for ontology quality evaluation, generating visual reports which showcase the quality of each ontology 
+
 ## OQuaRE
 
 OQuaRE is a framework developed by Astrid Duque Ramos which defines an ontology evaluation system based on ISO/IEC 25000:2005 (SQuaRE), which is presented as an ontology quality evaluation adapted to software quality standard SQuaRE which allows trazability within requirements and metrics of an ontology, with the goal of measuring in an objetive and reproducible way its characteristics as well as bringin assitance to users and developers in taking informed decisions
@@ -30,6 +31,9 @@ However it is HIGHLY ADVISED to update the reference from Emdien/oquare-metrics 
 * Upgraded action to use Java 17 instead of Java 8
 
 ## Usage
+To make use of this GitHub action create, in the root folder of your repository, the folder ./github/workflows with the file main.yml inside.
+Copy the blow example inside. Adjust the "ontology-folders" parameter to the folder where your ontologies are located for evaluation. The action will run as soon as you push into your git repository. 
+
 > NOTE: :warning:
 > 
 > * **IMPORTANT:** Currently you must have both Java and Python installed in the runner machine. This can be done by either a Docker image which has both, or by calling actions/setup-java and actions/setup-python
@@ -64,7 +68,7 @@ jobs:
           python-version: '3.9'
           
       - name: OQuaRE module
-        uses: tecnomod-um/oquare-metrics@v3.0
+        uses: kai-vu/oquare-metrics@v3.0
         with:
           ontology-folders: ontologies
 ```
@@ -93,7 +97,7 @@ jobs:
           python-version: '3.9'
           
       - name: OQuaRE module
-        uses: tecnomod-um/oquare-metrics@v3.0
+        uses: kai-vu/oquare-metrics@v3.0
         with:
           ontology-folders: ontologies
           release: true
